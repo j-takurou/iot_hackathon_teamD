@@ -25,21 +25,18 @@ async function LEDblink() {
   var gpio0Val = 0;
   while (blinkEnable) {
     gpio0Val = gpio0Val === 1 ? 0 : 1; // 条件 (三項) 演算子
-    // for (i = 1; i < 100; i++) {
-    await gpioPort0.write(gpio0Val); // 0-1：0%-100%に処理できる。
-    // }
+    await gpioPort0.write(gpio0Val); 
     msg.innerHTML = gpio0Val;
-    if (gpio0Val == 0) {
-      await sleep(5000);
-    } else {
-      msg.innerHTML = "連続点灯中";
-      for (i = 0; i < 50; i++) {
-        gpio0Val = gpio0Val === 1 ? 0 : 1; // 条件 (三項) 演算子
-        await sleep(100);
-        await gpioPort0.write(gpio0Val); // 0-1：0%-100%に処理できる。
-        await sleep(100);
-      }
-      msg.innerHTML = gpio0Val;
-    }
+    await sleep(1000);
   }
+}
+
+async function light_on(){
+    blinkEnable = true;
+    LEDblink();
+}
+
+async function light_off(){
+    blinkEnable = false;
+    LEDblink();
 }
