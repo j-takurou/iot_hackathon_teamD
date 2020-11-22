@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+</head>
+
+<body>
+    <form name="js">
+        <input type="button" value="接続" onclick="connect();" />
+        <input type="button" value="切断" onclick="disconnect();" />
+    </form>
+
+    <script>
+        var uart_device;
+
+        //micro:bit BLE UUID
+        var uuid = {};
+        uuid["UART_SERVICE"] = '6e400001-b5a3-f393-e0a9-e50e24dcca9e';
+        uuid["UART_SERVICE_CHARACTERISTICS"] = '6e400002-b5a3-f393-e0a9-e50e24dcca9e';
+
+        function connect() {
+            navigator.bluetooth.requestDevice({
+                    filters: [{
+                        namePrefix: 'BBC micro:bit',
+                    }],
+                    optionalServices: [uuid["UART_SERVICE"]]
+                })
+                .then(device => {
+                    uart_device = device;
+                    return device.gatt.connect();
+                })
+                .then(server => {
+                    return server.getPrimaryService(uuid["UART_SERVICE"]);
+                })
+                .then(service => {
+                    return service.getCharacteristic(uuid["UART_SERVICE_CHARACTERISTICS"]);
+                })
+                .then(chara => {
+                    alert("BLE connected");
+                    characteristic = chara;
+                    characteristic.startNotifications();
+                    characteristic.addEventListener('characteristicvaluechanged', onCharacteristicValueChanged);
+                })
+                .catch(error => {
+                    alert("BLE error");
+                });
+        }
+
+        function onCharacteristicValueChanged(e) {
+            var str_arr = [];
+            let Senddata = {
+                "datatype": "curtain",
+                "user_name": "tanemura-san",
+                "quantity": 0
+            };
+
+            for (var i = 0; i < this.value.byteLength; i++) {
+                str_arr[i] = this.value.getUint8(i);
+            }
+
+            var Microbit_Value = String.fromCharCode.apply(null, str_arr);
+
+
+            // Jsonに入れるものを書いてください！！　
+            if (Microbit_Value > 1) {
+
+                //curtain open    
+                Senddata["quantity"] = 1;
+            } else {
+                //curtain close
+                Senddata["quantity"] = 0;
+            }
+            // 200000ごとに送信を行う。
+            setTimeout(() => {
+                send_api(Senddata);
+            }, 2000)
+
+        }
+
+
+
+        function send_api(Senddata) {
+            fetch("https://iot-hackathon-2020.herokuapp.com/home_monitoring/send", {
+                    method: 'PUT',
+                    mode: 'cors',
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(Senddata),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', Senddata);
+                })
+                .catch((error) => {
+                    console.error('Error:', Senddata);
+                });
+
+        }
+
+
+        function disconnect() {
+            if ((!accelerometer_device) || (!accelerometer_device.gatt.connected)) {
+                return;
+            } else {
+                accelerometer_device.gatt.disconnect();
+                alert("BLE disconnected");
+            }
+        }
+    </script>
+</body>
+
+</html>
