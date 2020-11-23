@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<style>
+    .tab_No_checked:hover {
+        background-color: rgb(68, 65, 68)!important;
+        color: white!important;
+    }
+    
+    .tab_checked {
+        background-color: rgba(194, 69, 204, 1);
+        color: white!important;
+    }
+    
+    .tab_checked:hover {
+        background-color: rgba(194, 69, 204, 1)!important;
+    }
+    
+    .tab_column {
+        border-radius: 8px;
+        font-size: 16px;
+        letter-spacing: 1px;
+        font-weight: 500;
+    }
+    
+    a {
+        text-decoration: none!important;
+    }
+    
+    * {
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    .title {
+        font-size: 32px;
+    }
+    
+    .column-top-4 {
+        position: absolute;
+        z-index: -2;
+        top: 32%;
+        padding: 1em 2em 1em 8.5em;
+        font-weight: bold;
+        color: #000000;
+        /*文字色*/
+        background: #FFF;
+        border: solid 1px#707070;
+        /*線*/
+        border-radius: 8px;
+        /*角の丸み*/
+    }
+    
+    .column-top-4 p {
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        font-weight: 300;
+    }
+    
+    .column-top-4 p span {
+        font-size: 48px;
+        font-weight: 400;
+    }
+    
+    .shadow {
+        box-shadow: 2px 5px 6px #d0d0d0;
+    }
+    
+    .shower-card-square.mdl-card {
+        width: 320px;
+        height: 364px;
+    }
+    
+    .toilet-card-square.mdl-card {
+        width: 320px;
+        height: 364px;
+    }
+    
+    .curtain-card-square.mdl-card {
+        width: 320px;
+        height: 364px;
+    }
+    
+    .shower-card-square>.mdl-card__title {
+        color: #fff;
+        background: #52C3BE;
+    }
+    
+    .toilet-card-square>.mdl-card__title {
+        color: #fff;
+        background: #83A603;
+    }
+    
+    .curtain-card-square>.mdl-card__title {
+        color: #fff;
+        background: #8C1207;
+    }
+    
+    .mdl-card__supporting-text {
+        color: rgb(0 0 0)!important;
+        font-weight: 400!important;
+    }
+    
+    .mdl-card__supporting-text p {
+        color: #33F057;
+    }
+    
+    .mdl-card__supporting-text p span {
+        color: #33F057;
+        font-weight: 500!important;
+        font-size: 24px;
+    }
+    
+    .mt-4r {
+        margin-top: 4rem!important;
+    }
+    
+    .mb-8 {
+        margin-bottom: 8rem!important;
+    }
+    
+    .pb-8px {
+        padding-bottom: 8px!important;
+    }
+</style>
+
+<body>
+
+
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+            mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <h3 class="mt-2">Dashboad > Toilet</h3>
+                <div class="mdl-layout-spacer"></div>
+                <!--
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                  mdl-textfield--floating-label mdl-textfield--align-right">
+                    <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
+          <i class="material-icons">search</i>
+        </label>
+                    <div class="mdl-textfield__expandable-holder">
+                        <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
+                    </div>
+                </div>
+            -->
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title title mt-5">Product</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link mx-2 tab_No_checked tab_column mb-4 shadow" href="dashboad.html">
+                    <svg width="2rem" height="2rem" viewBox="0 0 16 16" class="bi bi-house" style="color:#000000;" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                    <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+                  </svg>
+
+                    <span class="ml-4" style="vertical-align: bottom;color:black;">Home</span></a>
+                <a class="mdl-navigation__link tab_column tab_No_checked mb-2 mx-2" href="shower.html">
+                    <i class="fas fa-shower ml-1" style="color:rgba(82,195,190,1);font-size: 24px;"></i><span style="margin-left: 2rem!important;">Shower</span>
+
+                </a>
+                <a class="mdl-navigation__link tab_column tab_checked mb-2 mx-2" href="toilet.html">
+                    <i class="fas fa-toilet ml-1" style="color:#ffffff;font-size: 24px;"></i><span style="margin-left: 2.6rem!important;">Toilet</span>
+                </a>
+                <a class="mdl-navigation__link tab_column tab_No_checked mb-2 mx-2" href="curtain.html">
+                    <i class="far fa-window-maximize" style="color:#8C1207;font-size: 24px;"></i><span style="margin-left: 2.3rem!important;">Curtain</span>
+                </a>
+
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mt-5 mx-3 shodow" style="color:red;color: red;position: absolute;bottom: 6%;width: 87%;">
+                    <div class="row">
+                        <div class="col-1"></div>
+                        <div class="col-1">
+                            <i class="fas fa-sign-out-alt ml-2"></i> 
+                        </div>
+                        <div class="col-6">
+                            Logout
+                        </div>
+                    </div>
+                  </button>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="page-content">
+
+                <div class="container">
+                    <div class="row mt-4r mb-8">
+
+
+
+
+
+                        <div class="col-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="120" height="120" viewBox="0 0 142 142">
+                                <defs>
+                                  <filter id="長方形_1495" x="0" y="0" width="142" height="142" filterUnits="userSpaceOnUse">
+                                    <feOffset dx="1" dy="8" input="SourceAlpha"/>
+                                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                                    <feFlood flood-opacity="0.161"/>
+                                    <feComposite operator="in" in2="blur"/>
+                                    <feComposite in="SourceGraphic"/>
+                                  </filter>
+                                </defs>
+                                <g id="グループ_208" data-name="グループ 208" transform="translate(-1118 -127)">
+                                  <g id="グループ_207" data-name="グループ 207" transform="translate(1111 131)">
+                                    <g id="グループ_206" data-name="グループ 206">
+                                      <g id="グループ_176" data-name="グループ 176" transform="translate(-377 -102)">
+                                        <g id="グループ_174" data-name="グループ 174" transform="translate(395 102)">
+                                          <g transform="matrix(1, 0, 0, 1, -11, -4)" filter="url(#長方形_1495)">
+                                            <rect id="長方形_1495-2" data-name="長方形 1495" width="118" height="118" rx="8" transform="translate(11 122) rotate(-90)" fill="#83a603"/>
+                                          </g>
+                                        </g>
+                                        <g id="グループ_175" data-name="グループ 175" transform="translate(425.856 132.856)">
+                                          <g id="icon_action_check_circle_outline_24px" data-name="icon/action/check_circle_outline_24px" transform="translate(0.144 0.144)">
+                                            <rect id="Boundary" width="30" height="30" fill="none"/>
+                                            <path id="_Color" data-name=" ↳Color" d="M26.5,53A26.5,26.5,0,1,1,53,26.5,26.53,26.53,0,0,1,26.5,53Zm0-47.7A21.2,21.2,0,1,0,47.7,26.5,21.224,21.224,0,0,0,26.5,5.3ZM21.2,39.751l0,0L7.949,26.5l3.737-3.737L21.2,32.25,38.664,14.787,42.4,18.551l-21.2,21.2Z" transform="translate(2 2)" fill="#83a603"/>
+                                          </g>
+                                        </g>
+                                      </g>
+                                    </g>
+                                  </g>
+                                  <path id="toilet" d="M37.375,4.875A1.63,1.63,0,0,0,39,3.25V1.625A1.63,1.63,0,0,0,37.375,0H1.625A1.63,1.63,0,0,0,0,1.625V3.25A1.63,1.63,0,0,0,1.625,4.875H3.25V20.79C1.2,21.816,0,23.045,0,24.375a19.476,19.476,0,0,0,8.816,16.3l-2.173,7.13A3.247,3.247,0,0,0,9.75,52h19.5a3.247,3.247,0,0,0,3.108-4.195l-2.173-7.13A19.476,19.476,0,0,0,39,24.375c0-1.33-1.2-2.559-3.25-3.585V4.875ZM8.125,7.313A.815.815,0,0,1,8.937,6.5h4.875a.815.815,0,0,1,.813.813V8.938a.815.815,0,0,1-.813.813H8.937a.815.815,0,0,1-.812-.813ZM19.5,27.625c-7.83,0-14.178-1.452-14.178-3.25s6.348-3.25,14.178-3.25,14.178,1.452,14.178,3.25S27.33,27.625,19.5,27.625Z" transform="translate(1170 163)" fill="#fff"/>
+                                </g>
+                              </svg>
+
+
+                            <div class="column-top-4 shadow">
+                                <p class="ml-2 mb-2">Toilet</p>
+                                <p class="mt-2 pt-2"><span>OK</span></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+            </div>
+        </main>
+    </div>
+</body>
