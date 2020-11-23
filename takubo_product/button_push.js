@@ -1,4 +1,5 @@
-// THis 
+// This source code is deployed on my raspberry pi. Using this we can 
+// gather data about which toilet button is pushed.
 
 var Gpio = require('onoff').Gpio; //include onoff to interact with the GPIO
 var LED_small = new Gpio(4, 'out'); //use GPIO pin 4 as output for 1
