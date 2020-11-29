@@ -40,12 +40,13 @@
                 })
                 .then(chara => {
                     alert("BLE connected");
-                    characteristic = chara;
-                    characteristic.startNotifications();
-                    characteristic.addEventListener('characteristicvaluechanged', onCharacteristicValueChanged);
+                    chara.startNotifications();
+                    setInterval(() => {
+                        chara.addEventListener('characteristicvaluechanged', onCharacteristicValueChanged)
+                    }, 200);
                 })
                 .catch(error => {
-                    alert("BLE error");
+                    alert("BLE error", error);
                 });
         }
 
@@ -73,7 +74,8 @@
                 //curtain close
                 Senddata["quantity"] = 0;
             }
-            // 200000ごとに送信を行う。
+            console.log(JSON.stringify(Senddata))
+                // 200000ごとに送信を行う。
             setTimeout(() => {
                 send_api(Senddata);
             }, 2000)
@@ -82,11 +84,12 @@
 
 
 
-        function send_api(Senddata) {
-            fetch("https://iot-hackathon-2020.herokuapp.com/home_monitoring/send", {
+
+        async function send_api(Senddata) {
+            fetch("https://iot-hackathon-2020.herokuapp.com/home_monitoring/send/", {
                     method: 'PUT',
                     mode: 'cors',
-                    credentials: 'include',
+                    //    credentials: 'include',
                     headers: {
                         'Content-Type': 'application/json',
                     },
